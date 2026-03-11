@@ -86,6 +86,12 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 
+  <meta name="theme-color" content="#B89A6A"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23B89A6A'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='white' font-family='Georgia'>✦</text></svg>"/>
+
   <!-- ═══ FAVICON (reemplazar con logo real) ════════════════ -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23B89A6A'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='white' font-family='Georgia'>✦</text></svg>"/>
 
@@ -367,6 +373,26 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 @keyframes march{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ══ TRUST BAR — nueva sección ══ */
+.trust-bar{background:var(--white);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);padding:1.4rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:400;letter-spacing:.08em;color:var(--ink-70)}
+.trust-item svg{width:16px;height:16px;fill:var(--gold);flex-shrink:0}
+.trust-sep{width:1px;height:18px;background:var(--sand);flex-shrink:0}
+
+/* ══ COOKIE BANNER ══ */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:600;background:var(--ink);color:rgba(255,255,255,.8);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.72rem;line-height:1.6;transform:translateY(100%);transition:transform .4s var(--ease)}
+#cookie-banner.show{transform:translateY(0)}
+#cookie-banner a{color:var(--gold-l);text-decoration:underline}
+.cookie-btn{background:var(--gold);color:var(--white);border:none;padding:.5rem 1.2rem;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;flex-shrink:0;white-space:nowrap}
+.cookie-btn:hover{background:var(--gold-d)}
+
+/* ══ BACK TO TOP ══ */
+#btt{position:fixed;bottom:5.5rem;right:1.8rem;z-index:399;width:40px;height:40px;border-radius:50%;background:var(--white);border:1px solid var(--sand);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);box-shadow:0 2px 12px rgba(28,20,16,.1)}
+#btt.vis{opacity:1;pointer-events:all}
+#btt:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
+#btt svg{width:16px;height:16px;fill:var(--ink-70);transition:fill .2s}
+#btt:hover svg{fill:var(--white)}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
   #nav,#nav.scrolled{padding:1.1rem 2rem}
@@ -395,50 +421,109 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .cierre-r{padding:4rem 3rem}
   .ft{grid-template-columns:1fr;gap:2rem}
   .sp,.sp-sm{padding:6rem 3rem}
+  .trust-bar{padding:1.2rem 2rem;gap:1rem}
+  .trust-sep{display:none}
 }
 
-/* ── MOBILE (≤640px) — estilo limpio, bloques apilados ── */
+/* ── MOBILE (≤640px) — FIXED completo ── */
 @media(max-width:640px){
 
-  /* NAV */
-  #nav,#nav.scrolled{padding:.85rem 1.5rem}
+  /* ── GLOBAL: Evita overflow horizontal ── */
+  html,body{overflow-x:hidden;width:100%}
+  *{max-width:100%;box-sizing:border-box}
 
-  /* HERO */
-  #hero{display:block;position:relative;min-height:100svh}
-  .h-visual{
-    position:absolute;inset:0;z-index:0;
-  }
-  .h-visual img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
-  .h-content{
-    position:relative;z-index:2;
-    display:flex;flex-direction:column;justify-content:flex-end;
+  /* NAV */
+  #nav,#nav.scrolled{padding:.85rem 1.2rem}
+  .nav-cta{display:none}
+
+  /* HERO — foto completa sin recortes */
+  #hero{
+    display:flex;
+    flex-direction:column;
+    position:relative;
     min-height:100svh;
-    padding:0 1.5rem 4rem;
+    overflow:hidden;
   }
-  .h-label{margin-bottom:1.2rem}
-  .h-h1{font-size:2.8rem;line-height:1.06;margin-bottom:1.2rem}
-  .h-p{font-size:.9rem;max-width:100%;margin-bottom:2rem}
-  .h-btns{flex-direction:column;align-items:flex-start;gap:.7rem}
-  .btn{padding:.85rem 1.6rem;font-size:.7rem}
+  .h-visual{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    width:100%;
+    height:100%;
+  }
+  .h-visual img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 20%;
+    display:block;
+  }
+  .h-vignette{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(28,20,16,.25) 0%,rgba(28,20,16,.75) 100%);
+  }
+  .h-content{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    min-height:100svh;
+    padding:0 1.4rem 4.5rem;
+    width:100%;
+  }
+  .h-panel{display:none}
+  .h-label{margin-bottom:1rem;gap:.6rem}
+  .h-label-line{width:24px}
+  .h-label span{font-size:.58rem}
+  .h-h1{font-size:clamp(2.2rem,9vw,3rem);line-height:1.06;margin-bottom:1rem}
+  .h-p{font-size:.87rem;max-width:100%;margin-bottom:1.8rem;line-height:1.7}
+  .h-btns{
+    flex-direction:column;
+    align-items:stretch;
+    gap:.7rem;
+    width:100%;
+  }
+  .h-btns .btn{
+    width:100%;
+    justify-content:center;
+    padding:.9rem 1.2rem;
+    font-size:.69rem;
+  }
 
   /* MARQUEE */
-  .mq-bar{padding:.65rem 0}
+  .mq-bar{padding:.6rem 0}
+  .mq-item{font-size:.58rem;padding:0 1.5rem;gap:1rem}
 
-  /* SOBRE MÍ */
-  #sobre{display:block}
+  /* TRUST BAR */
+  .trust-bar{
+    padding:1rem 1.4rem;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.8rem;
+  }
+  .trust-item{font-size:.66rem}
+
+  /* SOBRE MÍ — foto sin cortes */
+  #sobre{display:flex;flex-direction:column}
   .sobre-photo{
     position:relative;
-    height:440px;
+    width:100%;
+    height:0;
+    padding-bottom:100%;  /* cuadrado perfecto */
     overflow:hidden;
+    flex-shrink:0;
   }
   .sobre-frame{
     position:absolute;
     inset:1.2rem;
     border:1px solid var(--sand);
     overflow:hidden;
-    border-radius:1px;
   }
   .sobre-frame img{
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
@@ -447,102 +532,162 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   }
   .sobre-badge{display:none}
   .sobre-body{
-    padding:2.5rem 1.5rem 3rem;
+    padding:2.5rem 1.4rem 3rem;
+    width:100%;
   }
-  .sobre-body .h2{font-size:2rem;margin-bottom:1.2rem}
-  .sobre-body .body-r{font-size:.88rem;margin-bottom:1.8rem}
-  .cred-stack{margin-bottom:2rem}
-  .cred{padding:.75rem .9rem}
+  .sobre-body .h2{font-size:1.9rem;margin-bottom:1.1rem}
+  .sobre-body .body-r{font-size:.87rem;margin-bottom:1.6rem}
+  .cred-stack{margin-bottom:1.8rem}
+  .cred{padding:.7rem .9rem}
   .cred-t{font-size:.78rem}
+  .sobre-body .btn{width:100%;justify-content:center}
 
   /* SERVICIOS */
-  #servicios{padding:4rem 0 0}
-  .serv-hd{padding:0 1.5rem 2rem}
-  .serv-hd .h2{font-size:2rem}
+  #servicios{padding:4rem 0 0;width:100%}
+  .serv-hd{padding:0 1.4rem 2rem;gap:1.5rem}
+  .serv-hd .h2{font-size:1.9rem}
   .serv-hd-r{font-size:.82rem}
-  .serv-grid{grid-template-columns:1fr;gap:0}
-  .sc{padding:2rem 1.5rem 2rem}
-  .sc-n{font-size:3rem;margin-bottom:1.2rem}
-  .sc-name{font-size:1.4rem}
+  .serv-grid{
+    grid-template-columns:1fr;
+    gap:0;
+    width:100%;
+  }
+  .sc{padding:2rem 1.4rem}
+  .sc-n{font-size:2.8rem;margin-bottom:1rem}
+  .sc-name{font-size:1.35rem}
   .sc-desc{font-size:.8rem}
 
   /* CATÁLOGO */
-  #catalogo{padding:4rem 1.5rem}
-  .cat-hd .h2{font-size:2rem}
+  #catalogo{padding:4rem 1.4rem;width:100%}
+  .cat-hd .h2{font-size:1.9rem}
+  .cat-filters{
+    display:flex;
+    gap:.4rem;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:.5rem;
+    flex-wrap:nowrap;
+    width:100%;
+    scrollbar-width:none;
+  }
+  .cat-filters::-webkit-scrollbar{display:none}
+  .flt{font-size:.6rem;padding:.42rem .9rem;white-space:nowrap;flex-shrink:0}
   .cat-grid{
     grid-template-columns:1fr;
-    grid-auto-rows:280px;
-    gap:1.5px;
+    grid-auto-rows:260px;
+    gap:2px;
+    width:100%;
   }
   .ci:nth-child(1){grid-row:span 1}
   .ci:nth-child(4){grid-column:span 1}
-  .cat-filters{gap:.3rem;justify-content:flex-start;overflow-x:auto;padding-bottom:.5rem;flex-wrap:nowrap}
-  .flt{font-size:.6rem;padding:.4rem .9rem;white-space:nowrap;flex-shrink:0}
+  .cat-cta{padding:2rem 0 0;text-align:center}
+  .cat-cta .btn{width:100%;justify-content:center}
 
   /* PROCESO */
-  #proceso{display:block}
-  .proc-l{padding:4rem 1.5rem}
-  .proc-l .h2{font-size:2rem;margin-bottom:2rem}
-  .ps{padding:1.2rem 0}
-  .ps-title{font-size:1rem}
+  #proceso{display:flex;flex-direction:column;width:100%}
+  .proc-l{padding:3.5rem 1.4rem}
+  .proc-l .h2{font-size:1.9rem;margin-bottom:1.8rem}
+  .ps{padding:1.1rem 0;gap:.9rem}
+  .ps-n{font-size:1.6rem;min-width:2.5rem}
+  .ps-title{font-size:.95rem}
   .ps-desc{font-size:.78rem}
-  .proc-r{padding:3rem 1.5rem 4rem}
-  .proc-q{font-size:1.2rem}
+  .proc-r{padding:3rem 1.4rem 4rem}
+  .proc-q{font-size:1.1rem;line-height:1.55}
   .proc-note{font-size:.78rem}
+  .proc-r .btn{width:100%;justify-content:center}
 
   /* TESTIMONIOS */
-  #testimonios{padding:4rem 1.5rem}
-  .testi-hd{margin-bottom:2.5rem}
-  .testi-hd .h2{font-size:2rem}
-  .tg{grid-template-columns:1fr;gap:1.5px}
-  .tc{padding:2rem 1.5rem}
-  .tc-text{font-size:.95rem}
+  #testimonios{padding:4rem 1.4rem;width:100%}
+  .testi-hd{margin-bottom:2rem;flex-direction:column;align-items:flex-start;gap:1.2rem}
+  .testi-hd .h2{font-size:1.9rem}
+  .testi-hd .btn{width:100%;justify-content:center}
+  .tg{grid-template-columns:1fr;gap:2px;width:100%}
+  .tc{padding:1.8rem 1.4rem}
+  .tc-text{font-size:.92rem;line-height:1.7}
 
   /* FAQ */
   #faq{
-    display:block;
-    padding:4rem 1.5rem;
+    display:flex;
+    flex-direction:column;
+    gap:2.5rem;
+    padding:4rem 1.4rem;
+    width:100%;
   }
-  .faq-l{margin-bottom:2.5rem}
-  .faq-l .h2{font-size:2rem;margin-bottom:1rem}
-  .fq-q{font-size:.84rem}
-  .fq-ai{font-size:.8rem}
+  .faq-l .h2{font-size:1.9rem;margin-bottom:1rem}
+  .faq-l .btn{width:100%;justify-content:center}
+  .fq-q{
+    font-size:.83rem;
+    padding:.9rem 0;
+    width:100%;
+    text-align:left;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:.5rem;
+  }
+  .fq-ai{font-size:.8rem;line-height:1.7}
 
   /* CONTACTO */
-  #contacto{padding:4rem 1.5rem}
-  .cont-wrap{grid-template-columns:1fr;gap:2.5rem}
-  .cont-l .h2{font-size:2rem}
-  .cont-l .body-r{font-size:.85rem}
-  .chan{padding:.9rem 0}
-  .chan-ico{width:36px;height:36px}
+  #contacto{padding:4rem 1.4rem;width:100%}
+  .cont-wrap{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+    width:100%;
+  }
+  .cont-l .h2{font-size:1.9rem}
+  .cont-l .body-r{font-size:.84rem}
+  .chan{padding:.85rem 0}
+  .chan-ico{width:36px;height:36px;flex-shrink:0}
   .chan-ico svg{width:15px;height:15px}
-  .chan-name{font-size:.78rem}
-  .chan-val{font-size:.68rem}
-  .fbox{padding:2rem 1.5rem}
-  .fbox-title{font-size:1.2rem}
+  .chan-name{font-size:.77rem}
+  .chan-val{font-size:.67rem}
+  .fbox{padding:1.8rem 1.4rem;width:100%}
+  .fbox-title{font-size:1.15rem}
   .fr{grid-template-columns:1fr}
-  .fi,.fse,.fa{font-size:.82rem;padding:.68rem .85rem}
-  .fsub{padding:.85rem;font-size:.68rem}
+  .fi,.fse,.fa{
+    font-size:16px; /* evita zoom en iOS */
+    padding:.72rem .88rem;
+    width:100%;
+  }
+  .fsub{padding:.88rem;font-size:.68rem;width:100%}
 
   /* CIERRE */
-  #cierre{display:block}
-  .cierre-l{padding:4rem 1.5rem}
-  .cierre-h{font-size:1.8rem}
-  .cierre-r{padding:3rem 1.5rem 4rem}
-  .cierre-hrs{font-size:.95rem}
+  #cierre{display:flex;flex-direction:column;width:100%}
+  .cierre-l{padding:3.5rem 1.4rem}
+  .cierre-h{font-size:1.75rem;line-height:1.2}
+  .cierre-l .btn{width:100%;justify-content:center}
+  .cierre-r{padding:3rem 1.4rem 4rem}
+  .cierre-hrs{font-size:.92rem}
+  .btn-ghost-inv{width:100%;justify-content:center}
 
   /* FOOTER */
-  footer{padding:3rem 1.5rem 2rem}
-  .ft{grid-template-columns:1fr;gap:2rem}
-  .fb-n{font-size:1.2rem}
-  .fb-p{font-size:.76rem}
-  .fc-h{margin-top:.5rem}
+  footer{padding:3rem 1.4rem 2rem;width:100%}
+  .ft{
+    grid-template-columns:1fr;
+    gap:2rem;
+    padding-bottom:2rem;
+  }
+  .fb-n{font-size:1.15rem}
+  .fb-p{font-size:.75rem;max-width:100%}
+  .fc-h{margin-top:.4rem}
   .fc a{font-size:.76rem}
-  .fb{flex-direction:column;gap:.4rem;text-align:center;font-size:.65rem}
+  .fb{
+    flex-direction:column;
+    gap:.35rem;
+    text-align:center;
+    font-size:.63rem;
+  }
 
   /* WA FLOAT */
   .wa-f{bottom:1.2rem;right:1.2rem;width:46px;height:46px}
-  .wa-f svg{width:21px;height:21px}
+  .wa-f svg{width:20px;height:20px}
+
+  /* COOKIE BANNER */
+  #cookie-banner{flex-direction:column;align-items:flex-start;gap:.8rem;padding:1.2rem 1.4rem}
+  #cookie-banner p{font-size:.7rem}
+
+  /* BACK TO TOP mobile */
+  #btt{bottom:5rem;right:1.2rem}
 }
   </style>
 </head>
@@ -619,6 +764,34 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <span class="mq-item">Restauraciones Estéticas <span class="mq-gem">✦</span></span>
     <span class="mq-item">Odontología General <span class="mq-gem">✦</span></span>
     <span class="mq-item">Chacaito · Caracas <span class="mq-gem">✦</span></span>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    <span>Atención 100% personalizada</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <span>+500 pacientes satisfechos</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    <span>Materiales premium certificados</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    <span>Chacaito · Caracas · Venezuela</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    <span>Lun–Sáb · 8 am – 5 pm</span>
   </div>
 </div>
 
@@ -939,6 +1112,17 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   </div>
 </footer>
 
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <p>Esta web usa cookies para analítica (Google Analytics) y mejorar tu experiencia. Al continuar navegando aceptas su uso. <a href="#" onclick="return false">Más información</a></p>
+  <button class="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('ck','1')">Aceptar</button>
+</div>
+
+<!-- BACK TO TOP -->
+<button id="btt" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l7-7 7 7"/></svg>
+</button>
+
 <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+más+información." target="_blank" class="wa-f" title="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
 </a>
@@ -946,16 +1130,21 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <script>
 // ── NAV SCROLL ────────────────────────────────────────────
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',scrollY>60);
+  // Back to top
+  const btt=document.getElementById('btt');
+  if(btt)btt.classList.toggle('vis',scrollY>400);
+},{passive:true});
 
 // ── MOBILE MENU ───────────────────────────────────────────
 const ham=document.getElementById('ham'),mob=document.getElementById('mob'),cls=document.getElementById('mobCls');
-ham.addEventListener('click',()=>mob.classList.add('open'));
-cls.addEventListener('click',()=>mob.classList.remove('open'));
-function cm(){mob.classList.remove('open')}
+ham.addEventListener('click',()=>{mob.classList.add('open');document.body.style.overflow='hidden'});
+cls.addEventListener('click',()=>{mob.classList.remove('open');document.body.style.overflow=''});
+function cm(){mob.classList.remove('open');document.body.style.overflow=''}
 
 // ── SCROLL REVEAL ─────────────────────────────────────────
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -45px 0px'});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>io.observe(el));
 
 // ── FAQ ───────────────────────────────────────────────────
@@ -963,6 +1152,16 @@ function fq(b){const r=b.parentElement;document.querySelectorAll('.fq-row').forE
 
 // ── CATALOG FILTER ────────────────────────────────────────
 document.querySelectorAll('.flt').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.flt').forEach(x=>x.classList.remove('on'));b.classList.add('on');const f=b.dataset.f;document.querySelectorAll('.ci').forEach(i=>{i.style.display=(f==='all'||i.dataset.c===f)?'block':'none'})})});
+
+// ── COOKIE BANNER ─────────────────────────────────────────
+(function(){
+  if(!localStorage.getItem('ck')){
+    setTimeout(()=>{
+      const cb=document.getElementById('cookie-banner');
+      if(cb)cb.classList.add('show');
+    },1200);
+  }
+})();
 
 // ── FORMSPREE AJAX (sin redirección) ─────────────────────
 const form=document.getElementById('cf');
@@ -993,6 +1192,14 @@ if(form){
     }
   });
 }
+
+// ── SMOOTH SCROLL para todos los anchor links ─────────────
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();const off=nav.offsetHeight;window.scrollTo({top:t.offsetTop-off,behavior:'smooth'})}
+  });
+});
 </script>
 </body>
 </html>
