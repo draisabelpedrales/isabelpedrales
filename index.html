@@ -89,9 +89,9 @@
   <!-- ═══ FAVICON (reemplazar con logo real) ════════════════ -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23B89A6A'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='white' font-family='Georgia'>✦</text></svg>"/>
 
-  <!-- ═══ GOOGLE ANALYTICS (reemplazar G-XXXXXXXX) ══════════ -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXX');</script> -->
+  <!-- ═══ GOOGLE ANALYTICS ════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNLTX46JJ7"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DNLTX46JJ7');</script>
   <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer}
@@ -377,6 +377,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .h-visual{min-height:100svh}
   .h-content{padding:0 0 4rem 2.5rem}
   #sobre{grid-template-columns:1fr}
+  .sobre-photo{min-height:480px}
   .sobre-body{padding:4rem 3rem}
   .serv-hd{grid-template-columns:1fr;padding:0 2.5rem 3rem}
   .serv-grid{grid-template-columns:1fr 1fr}
@@ -398,20 +399,41 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 @media(max-width:640px){
   #nav,#nav.scrolled{padding:.9rem 1.5rem}
   .h-content{padding:0 0 3.5rem 1.8rem}
-  .sobre-body{padding:3rem 1.8rem}
+  .h-h1{font-size:2.6rem}
+  .h-p{font-size:.88rem;max-width:90%}
+  .h-btns{flex-direction:column;align-items:flex-start;gap:.7rem}
+  .btn{font-size:.68rem;padding:.78rem 1.4rem}
+  #sobre{display:flex;flex-direction:column}
+  .sobre-photo{min-height:380px;order:1}
+  .sobre-frame{position:absolute;inset:1.5rem}
+  .sobre-badge{display:none}
+  .sobre-body{padding:2.5rem 1.5rem;order:2}
+  .sobre-body .h2{font-size:1.8rem}
   .serv-grid{grid-template-columns:1fr}
-  .serv-hd{padding:0 1.8rem 2.5rem}
-  #catalogo{padding:5rem 1.8rem}
-  .cat-grid{grid-template-columns:1fr;grid-auto-rows:260px}
+  .serv-hd{padding:0 1.5rem 2rem}
+  #servicios{padding:5rem 0 0}
+  .sc{padding:2.2rem 1.5rem 2rem}
+  #catalogo{padding:4rem 1.5rem}
+  .cat-grid{grid-template-columns:1fr;grid-auto-rows:240px}
   .ci:nth-child(4){grid-column:span 1}
-  .proc-l,.proc-r{padding:4rem 1.8rem}
-  #faq{padding:5rem 1.8rem}
-  #contacto,.sp,.sp-sm{padding:5rem 1.8rem}
+  .cat-filters{gap:.3rem}
+  .flt{font-size:.58rem;padding:.4rem .9rem}
+  .proc-l,.proc-r{padding:3.5rem 1.5rem}
+  #faq{padding:4rem 1.5rem;gap:2rem}
+  .faq-l .h2{font-size:1.8rem}
+  #contacto,.sp,.sp-sm{padding:4rem 1.5rem}
   .fr{grid-template-columns:1fr}
-  .cierre-l{padding:4rem 2rem}
-  .cierre-r{padding:3.5rem 2rem}
-  footer{padding:3.5rem 1.8rem 2rem}
+  .fbox{padding:2rem 1.5rem}
+  .cont-wrap{gap:2.5rem}
+  .cierre-l{padding:3.5rem 1.5rem}
+  .cierre-h{font-size:1.6rem}
+  .cierre-r{padding:3rem 1.5rem}
+  footer{padding:3rem 1.5rem 1.5rem}
   .fb{flex-direction:column;gap:.4rem;text-align:center}
+  .mq-bar{padding:.7rem 0}
+  .proc-q{font-size:1.1rem}
+  .testi-hd{padding:0}
+  .tc{padding:1.8rem}
 }
   </style>
 </head>
