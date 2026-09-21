@@ -41,6 +41,7 @@
     "email": "isabelcristinapedrales@gmail.com",
     "image": "https://draisabelpedrales.github.io/isabelpedrales/og-image.jpg",
     "priceRange": "$$",
+    "areaServed": { "@type": "City", "name": "Caracas", "containedInPlace": { "@type": "Country", "name": "Venezuela" } },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Chacaito",
@@ -94,10 +95,30 @@
 
   <!-- ═══ FAVICON (reemplazar con logo real) ════════════════ -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23B89A6A'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='white' font-family='Georgia'>✦</text></svg>"/>
+  <!-- Consentimiento: la medición arranca DENEGADA hasta que la persona decida (Google Consent Mode v2) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', functionality_storage: 'granted',
+      security_storage: 'granted', wait_for_update: 600
+    });
+    (function(){
+      try {
+        var g = localStorage.getItem('consentimiento');
+        if (g === 'aceptado') gtag('consent', 'update', {
+          ad_storage:'granted', ad_user_data:'granted',
+          ad_personalization:'granted', analytics_storage:'granted'
+        });
+      } catch(e) {}
+    })();
+  </script>
+
 
   <!-- ═══ GOOGLE ANALYTICS ════════════════════════════════════ -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNLTX46JJ7"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DNLTX46JJ7');</script>
+  <script>gtag('js', new Date()); gtag('config', 'G-DNLTX46JJ7');</script>
   <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer}
@@ -703,7 +724,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" class="nav-cta">Agendar →</a>
+  <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" rel="noopener noreferrer" class="nav-cta">Agendar →</a>
   <button class="ham" id="ham"><span></span><span></span><span></span></button>
 </header>
 
@@ -714,14 +735,14 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   <a href="#catalogo" onclick="cm()">Resultados</a>
   <a href="#faq" onclick="cm()">FAQ</a>
   <a href="#contacto" onclick="cm()">Contacto</a>
-  <a href="https://wa.me/584245350712" target="_blank">Agendar →</a>
+  <a href="https://wa.me/584245350712" target="_blank" rel="noopener noreferrer">Agendar →</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="h-visual">
     <!-- Reemplazar con foto real de la Dra. Isabel -->
-    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&q=85&auto=format&fit=crop&crop=faces" alt="Dra. Isabel Pedrales"/>
+    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&q=85&auto=format&fit=crop&crop=faces" alt="Dra. Isabel Pedrales"/ width="1200" height="900" fetchpriority="high">
     <div class="h-vignette"></div>
   </div>
   <div class="h-content">
@@ -729,7 +750,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <h1 class="h-h1">La sonrisa<br>que siempre<br><em>imaginaste</em>.</h1>
     <p class="h-p">Especialista en Diseño de Sonrisa, Carillas y Prótesis. Tratamientos estéticos de alta precisión con un enfoque 100% personalizado.</p>
     <div class="h-btns">
-      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+una+evaluación+de+Diseño+de+Sonrisa." target="_blank" class="btn btn-gold">
+      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+una+evaluación+de+Diseño+de+Sonrisa." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
         Agenda tu evaluación
       </a>
@@ -799,7 +820,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <section id="sobre">
   <div class="sobre-photo rv-l">
     <div class="sobre-frame">
-      <img src="isabel.jpg" alt="Dra. Isabel Pedrales — Odontóloga en Caracas"/>
+      <img src="isabel.jpg" alt="Dra. Isabel Pedrales — Odontóloga en Caracas"/ width="719" height="1080" loading="lazy">
     </div>
     <div class="sobre-badge">Odontóloga · Diseño de Sonrisa</div>
   </div>
@@ -813,7 +834,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
       <div class="cred"><div class="cred-t">Especialista en Carillas, Prótesis y Restauraciones<small>Alta estética · Mínima invasión · Máximo resultado</small></div></div>
       <div class="cred"><div class="cred-t">Atención odontológica general integral<small>Chacaito, Caracas · Lun–Sáb 8:00 am – 5:00 pm</small></div></div>
     </div>
-    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" class="btn btn-gold" style="align-self:flex-start">
+    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="align-self:flex-start">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
       Hablar con Isabel
     </a>
@@ -832,28 +853,28 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
       <div class="sc-pill">Tratamiento estrella</div>
       <h3 class="sc-name">Diseño<br>de Sonrisa</h3>
       <p class="sc-desc">Una transformación completa y completamente tuya. Analizamos proporciones faciales, color, forma y simetría para crear la sonrisa que siempre soñaste — natural, armónica, irresistible.</p>
-      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Diseño+de+Sonrisa." target="_blank" class="sc-lnk">Quiero mi diseño →</a>
+      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Diseño+de+Sonrisa." target="_blank" rel="noopener noreferrer" class="sc-lnk">Quiero mi diseño →</a>
     </div>
     <div class="sc rv">
       <div class="sc-n">02</div>
       <div class="sc-pill">Alta estética</div>
       <h3 class="sc-name">Carillas</h3>
       <p class="sc-desc">El secreto de las sonrisas perfectas. Láminas ultrafinas de porcelana o composite que transforman color, forma y tamaño. Mínimamente invasivas. Máximo impacto visual.</p>
-      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Carillas." target="_blank" class="sc-lnk">Consultar →</a>
+      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Carillas." target="_blank" rel="noopener noreferrer" class="sc-lnk">Consultar →</a>
     </div>
     <div class="sc rv">
       <div class="sc-n">03</div>
       <div class="sc-pill">Rehabilitación</div>
       <h3 class="sc-name">Prótesis<br>Dental</h3>
       <p class="sc-desc">Recupera la función y la estética. Prótesis fijas o removibles de alta calidad que devuelven no solo los dientes — devuelven la seguridad de reír, hablar y comer sin limitaciones.</p>
-      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Prótesis." target="_blank" class="sc-lnk">Consultar →</a>
+      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Prótesis." target="_blank" rel="noopener noreferrer" class="sc-lnk">Consultar →</a>
     </div>
     <div class="sc rv">
       <div class="sc-n">04</div>
       <div class="sc-pill">Estética dental</div>
       <h3 class="sc-name">Restaura&shy;ciones</h3>
       <p class="sc-desc">Resinas de última generación para recuperar dientes dañados con resultados visualmente impecables. Natural, duradero y sin sacrificar la estética de tu sonrisa.</p>
-      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Restauraciones." target="_blank" class="sc-lnk">Consultar →</a>
+      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+información+sobre+Restauraciones." target="_blank" rel="noopener noreferrer" class="sc-lnk">Consultar →</a>
     </div>
   </div>
 </section>
@@ -920,7 +941,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   </div>
   <div class="cat-cta rv">
     <p>¿Quieres ver más casos y resultados?</p>
-    <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" class="btn btn-gold">
+    <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
       <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       Ver más en Instagram
     </a>
@@ -943,7 +964,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <p class="proc-q">"No se trata solo de dientes bonitos. Se trata de la <em>confianza que sientes</em> cuando entras a una habitación y sonríes sin pensarlo."</p>
     <p class="proc-author">— Dra. Isabel Pedrales</p>
     <div class="proc-note"><strong>¿Lista/o para tu primera evaluación?</strong><br>La consulta inicial es el primer paso. Sin compromisos. Con toda la información que necesitas para decidir.</div>
-    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación+inicial." target="_blank" class="btn btn-gold">
+    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación+inicial." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
       Agendar evaluación inicial
     </a>
@@ -954,7 +975,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <section id="testimonios" class="sp">
   <div class="testi-hd">
     <div><div class="tag">Testimonios</div><h2 class="h2">Lo que dicen<br>nuestros <em>pacientes</em>.</h2></div>
-    <a href="https://wa.me/584245350712" target="_blank" class="btn btn-gold">Sé el próximo →</a>
+    <a href="https://wa.me/584245350712" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Sé el próximo →</a>
   </div>
   <div class="tg">
     <div class="tc rv"><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-text">"Siempre quise cambiar mi sonrisa y con la Dra. Isabel lo logré. El diseño fue exactamente lo que tenía en mente. Ahora sonrío en cada foto sin pensarlo."</p><div class="tc-div"></div><div class="tc-person"><div class="tc-av">A</div><div><div class="tc-name">Andrea M.</div><div class="tc-proc">Diseño de Sonrisa + Carillas</div></div></div></div>
@@ -969,7 +990,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <div class="tag">FAQ</div>
     <h2 class="h2">¿Tienes<br><em>dudas</em>?</h2>
     <p class="body-r" style="font-size:.88rem;margin-bottom:2rem">Aquí resolvemos las preguntas más frecuentes. Para cualquier otra consulta, escríbenos directamente.</p>
-    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+tengo+una+pregunta." target="_blank" class="btn btn-gold">
+    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+tengo+una+pregunta." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
       Preguntar por WhatsApp
     </a>
@@ -992,15 +1013,15 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
       <h2 class="h2">Tu nueva sonrisa<br>está a un <em>mensaje</em>.</h2>
       <p class="body-r" style="font-size:.88rem;margin-bottom:2.2rem">¿Lista/o para dar el primer paso? Elige el canal que prefieras. Te respondemos con la mayor brevedad posible.</p>
       <div class="chan-list">
-        <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+una+evaluación." target="_blank" class="chan">
+        <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+una+evaluación." target="_blank" rel="noopener noreferrer" class="chan">
           <div class="chan-ico"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg></div>
           <div><div class="chan-name">WhatsApp</div><div class="chan-val">+58 424 535-0712</div></div>
         </a>
-        <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" class="chan">
+        <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" rel="noopener noreferrer" class="chan">
           <div class="chan-ico"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
           <div><div class="chan-name">Instagram Profesional</div><div class="chan-val">@od.isabelpedrales</div></div>
         </a>
-        <a href="https://www.tiktok.com/@odisabelpedrales" target="_blank" class="chan">
+        <a href="https://www.tiktok.com/@odisabelpedrales" target="_blank" rel="noopener noreferrer" class="chan">
           <div class="chan-ico"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.17a8.16 8.16 0 004.77 1.52V7.25a4.85 4.85 0 01-1-.56z"/></svg></div>
           <div><div class="chan-name">TikTok</div><div class="chan-val">@odisabelpedrales</div></div>
         </a>
@@ -1015,28 +1036,19 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
         <div style="font-size:2rem;margin-bottom:1rem">✦</div>
         <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:1.3rem;color:var(--ink);margin-bottom:.5rem">¡Mensaje recibido!</p>
         <p style="font-size:.82rem;color:var(--ink-40);line-height:1.7">La Dra. Isabel te contactará pronto.<br/>También puedes escribirle directamente:</p>
-        <a href="https://wa.me/584245350712" target="_blank" class="btn btn-gold" style="margin-top:1.5rem;display:inline-flex">
+        <a href="https://wa.me/584245350712" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="margin-top:1.5rem;display:inline-flex">
           <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
           Escribir por WhatsApp
         </a>
       </div>
 
-      <!--
-        ══════════════════════════════════════════════════════
-        FORMSPREE — INSTRUCCIONES:
-        1. Ve a formspree.io → Sign Up (gratis)
-        2. New Form → ponle nombre "Isabel Pedrales Web"
-        3. Copia tu endpoint: https://formspree.io/f/XXXXXXXX
-        4. Reemplaza action="https://formspree.io/f/XXXXXXXX" abajo
-        5. En Formspree > Settings > Email: confirma isabelcristinapedrales@gmail.com
-        ══════════════════════════════════════════════════════
-      -->
+      <!-- Formulario de contacto -->
       <form id="cf"
             action="https://formspree.io/f/mlgpjydv"
             method="POST">
 
         <!-- Campo oculto: email destino -->
-        <input type="hidden" name="_replyto" value="pedralesisable@gmail.com"/>
+        <input type="hidden" name="_replyto" value="pedralesisabel@gmail.com"/>
         <!-- Asunto del email -->
         <input type="hidden" name="_subject" value="✦ Nuevo lead — Web Dra. Isabel Pedrales"/>
         <!-- Evitar spam bots (honeypot) -->
@@ -1075,7 +1087,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <section id="cierre">
   <div class="cierre-l rv">
     <h2 class="cierre-h">Una sonrisa extraordinaria<br>comienza con<br><em>una conversación</em>.</h2>
-    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" class="btn btn-gold">
+    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
       Agenda tu evaluación
     </a>
@@ -1083,7 +1095,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   <div class="cierre-r">
     <p class="cierre-sub">Chacaito · Caracas · Venezuela</p>
     <p class="cierre-hrs">Lunes a Sábado<br>8:00 am – 5:00 pm</p>
-    <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" class="btn-ghost-inv">
+    <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" rel="noopener noreferrer" class="btn-ghost-inv">
       <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       Seguir en Instagram
     </a>
@@ -1098,9 +1110,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
       <div class="fb-s">Odontóloga · Diseño de Sonrisa · Caracas</div>
       <p class="fb-p">Especialista en Diseño de Sonrisa, Carillas y Prótesis Dental. Transformando sonrisas en Chacaito, Caracas con estética, precisión y cuidado genuino.</p>
       <div class="ft-soc">
-        <a href="https://wa.me/584245350712" target="_blank" class="fs" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg></a>
-        <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" class="fs" title="Instagram Profesional"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="https://www.tiktok.com/@odisabelpedrales" target="_blank" class="fs" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.17a8.16 8.16 0 004.77 1.52V7.25a4.85 4.85 0 01-1-.56z"/></svg></a>
+        <a href="https://wa.me/584245350712" target="_blank" rel="noopener noreferrer" class="fs" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg></a>
+        <a href="https://www.instagram.com/od.isabelpedrales" target="_blank" rel="noopener noreferrer" class="fs" title="Instagram Profesional"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.tiktok.com/@odisabelpedrales" target="_blank" rel="noopener noreferrer" class="fs" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.17a8.16 8.16 0 004.77 1.52V7.25a4.85 4.85 0 01-1-.56z"/></svg></a>
       </div>
     </div>
     <div class="fc"><div class="fc-h">Tratamientos</div><ul><li><a href="#servicios">Diseño de Sonrisa</a></li><li><a href="#servicios">Carillas</a></li><li><a href="#servicios">Prótesis Dental</a></li><li><a href="#servicios">Restauraciones</a></li><li><a href="#servicios">Odontología General</a></li></ul></div>
@@ -1110,6 +1122,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <span>© 2026 Dra. Isabel Pedrales · Chacaito, Caracas, Venezuela</span>
     <span>Lunes a Sábado · 8:00 am – 5:00 pm</span>
   </div>
+  <p style="text-align:center;font-size:.8rem;opacity:.65;margin:1.25rem 0 .5rem"><a href="politica-de-privacidad.html" style="text-decoration:underline">Política de privacidad</a></p>
 </footer>
 
 <!-- COOKIE BANNER -->
@@ -1123,7 +1136,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l7-7 7 7"/></svg>
 </button>
 
-<a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+más+información." target="_blank" class="wa-f" title="WhatsApp">
+<a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+más+información." target="_blank" rel="noopener noreferrer" class="wa-f" title="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
 </a>
 
@@ -1200,6 +1213,69 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t){e.preventDefault();const off=nav.offsetHeight;window.scrollTo({top:t.offsetTop-off,behavior:'smooth'})}
   });
 });
+</script>
+
+<!-- ═══ MEDICIÓN DE CONVERSIONES ═══
+     Registra los clics que de verdad importan: WhatsApp, teléfono y envío del formulario.
+     Sin esto, Analytics solo cuenta visitas y no se sabe qué trae pacientes. -->
+<script>
+  function medirContacto(canal, detalle){
+    if (typeof gtag === 'function') gtag('event', 'contacto', { method: canal, detalle: detalle || '' });
+    if (typeof fbq === 'function') fbq('track', 'Contact');
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp') > -1) medirContacto('whatsapp', a.textContent.trim().slice(0,40));
+    else if (href.indexOf('tel:') === 0) medirContacto('telefono');
+    else if (href.indexOf('mailto:') === 0) medirContacto('correo');
+    else if (href.indexOf('instagram.com') > -1) medirContacto('instagram');
+  }, { passive: true });
+  document.addEventListener('submit', function(e){
+    if (!e.target.matches('form[action*="formspree"]')) return;
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'formulario' });
+    if (typeof fbq === 'function') fbq('track', 'Lead');
+  }, true);
+</script>
+
+<!-- ═══ AVISO DE COOKIES ═══ -->
+<div id="ck" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden
+     style="position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;gap:.9rem;
+            flex-wrap:wrap;align-items:center;justify-content:center;padding:1rem 1.15rem;
+            padding-bottom:calc(1rem + env(safe-area-inset-bottom));background:#1C1410;
+            color:#F9F5F0;border-top:1px solid rgba(249,245,240,.22);box-shadow:0 -6px 22px rgba(0,0,0,.13);
+            font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif">
+  <p style="margin:0;flex:1 1 20rem;max-width:42rem">
+    Usamos cookies propias y de terceros para entender cómo se usa el sitio y medir nuestra
+    publicidad. Puedes aceptarlas o rechazarlas.
+    <a href="politica-de-privacidad.html" style="color:#B89A6A;text-decoration:underline">Ver política de privacidad</a>.
+  </p>
+  <div style="display:flex;gap:.6rem;flex:0 0 auto">
+    <button type="button" onclick="ckSet('rechazado')"
+      style="min-height:44px;padding:0 1.1rem;border:1px solid rgba(249,245,240,.22);background:transparent;
+             color:inherit;border-radius:10px;font:inherit;font-weight:500">Rechazar</button>
+    <button type="button" onclick="ckSet('aceptado')"
+      style="min-height:44px;padding:0 1.3rem;border:0;background:#B89A6A;color:#1C1410;
+             border-radius:10px;font:inherit;font-weight:600">Aceptar</button>
+  </div>
+</div>
+<script>
+  function ckSet(v){
+    try { localStorage.setItem('consentimiento', v); } catch(e) {}
+    var el = document.getElementById('ck'); if (el) el.hidden = true;
+    if (v === 'aceptado') {
+      if (typeof gtag === 'function') gtag('consent','update',{
+        ad_storage:'granted', ad_user_data:'granted',
+        ad_personalization:'granted', analytics_storage:'granted'
+      });
+      if (typeof fbq === 'function') { fbq('consent','grant'); fbq('track','PageView'); }
+    }
+  }
+  (function(){
+    var v = null; try { v = localStorage.getItem('consentimiento'); } catch(e) {}
+    if (!v) { var el = document.getElementById('ck'); if (el) el.hidden = false; }
+  })();
 </script>
 </body>
 </html>
