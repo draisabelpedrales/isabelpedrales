@@ -1240,8 +1240,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 </script>
 
 <!-- ═══ AVISO DE COOKIES ═══ -->
-<div id="ck" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden
-     style="position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;gap:.9rem;
+<div id="ck" role="dialog" aria-live="polite" aria-label="Aviso de cookies"
+     style="position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;gap:.9rem;
             flex-wrap:wrap;align-items:center;justify-content:center;padding:1rem 1.15rem;
             padding-bottom:calc(1rem + env(safe-area-inset-bottom));background:#1C1410;
             color:#F9F5F0;border-top:1px solid rgba(249,245,240,.22);box-shadow:0 -6px 22px rgba(0,0,0,.13);
@@ -1263,7 +1263,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <script>
   function ckSet(v){
     try { localStorage.setItem('consentimiento', v); } catch(e) {}
-    var el = document.getElementById('ck'); if (el) el.hidden = true;
+    var el = document.getElementById('ck'); if (el) el.style.display = 'none';
     if (v === 'aceptado') {
       if (typeof gtag === 'function') gtag('consent','update',{
         ad_storage:'granted', ad_user_data:'granted',
@@ -1274,7 +1274,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   }
   (function(){
     var v = null; try { v = localStorage.getItem('consentimiento'); } catch(e) {}
-    if (!v) { var el = document.getElementById('ck'); if (el) el.hidden = false; }
+    if (!v) { var el = document.getElementById('ck'); if (el) el.style.display = 'flex'; }
   })();
 </script>
 </body>
