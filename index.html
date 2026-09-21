@@ -116,6 +116,20 @@
   </script>
 
 
+  <!-- ═══ META PIXEL ══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://connect.facebook.net"/>
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('consent', 'revoke');
+  fbq('init', '2214678052764108');
+  try { if (localStorage.getItem('consentimiento') === 'aceptado') { fbq('consent','grant'); fbq('track','PageView'); } } catch(e) {}
+  </script>
+  <noscript><img alt="" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2214678052764108&ev=PageView&noscript=1"/></noscript>
+
   <!-- ═══ GOOGLE ANALYTICS ════════════════════════════════════ -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNLTX46JJ7"></script>
   <script>gtag('js', new Date()); gtag('config', 'G-DNLTX46JJ7');</script>
