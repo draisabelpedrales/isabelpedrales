@@ -726,7 +726,20 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   /* BACK TO TOP mobile */
   #btt{bottom:5rem;right:1.2rem}
 }
-  </style>
+  
+/* AGENDA EN LÍNEA */
+#agendar{background:var(--parch-d);scroll-margin-top:80px}
+.ag-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:5rem;align-items:start;max-width:1200px;margin:0 auto}
+.ag-p{margin-top:1.4rem;color:var(--ink-70);line-height:1.8;max-width:44ch}
+.ag-pts{list-style:none;margin-top:2rem;display:grid;gap:.9rem}
+.ag-pts li{position:relative;padding-left:1.6rem;color:var(--ink);font-size:.95rem}
+.ag-pts li::before{content:"";position:absolute;left:0;top:.55em;width:.7rem;height:1px;background:var(--gold)}
+.ag-pts a{color:var(--gold-d);border-bottom:1px solid var(--gold-l)}
+.ag-r{background:var(--white);border:1px solid var(--sand);padding:1.6rem}
+.ag-r iframe{display:block;width:100%;height:560px;border:0;transition:height .25s var(--ease)}
+.btn svg{width:1rem;height:1rem;flex:none}
+@media(max-width:900px){.ag-wrap{grid-template-columns:1fr;gap:2.5rem}.ag-r{padding:.8rem}}
+</style>
 </head>
 <body>
 
@@ -740,7 +753,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" rel="noopener noreferrer" class="nav-cta">Agendar →</a>
+  <a href="#agendar" class="nav-cta">Agendar →</a>
   <button class="ham" id="ham"><span></span><span></span><span></span></button>
 </header>
 
@@ -751,7 +764,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   <a href="#catalogo" onclick="cm()">Resultados</a>
   <a href="#faq" onclick="cm()">FAQ</a>
   <a href="#contacto" onclick="cm()">Contacto</a>
-  <a href="https://wa.me/584245350712" target="_blank" rel="noopener noreferrer">Agendar →</a>
+  <a href="#agendar" onclick="cm()">Agendar →</a>
 </nav>
 
 <!-- HERO -->
@@ -766,8 +779,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <h1 class="h-h1">La sonrisa<br>que siempre<br><em>imaginaste</em>.</h1>
     <p class="h-p">Especialista en Diseño de Sonrisa, Carillas y Prótesis. Tratamientos estéticos de alta precisión con un enfoque 100% personalizado.</p>
     <div class="h-btns">
-      <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+una+evaluación+de+Diseño+de+Sonrisa." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
+      <a href="#agendar" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="1.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>
         Agenda tu evaluación
       </a>
       <a href="#catalogo" class="btn btn-ghost-w">Ver resultados →</a>
@@ -980,8 +993,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <p class="proc-q">"No se trata solo de dientes bonitos. Se trata de la <em>confianza que sientes</em> cuando entras a una habitación y sonríes sin pensarlo."</p>
     <p class="proc-author">— Dra. Isabel Pedrales</p>
     <div class="proc-note"><strong>¿Lista/o para tu primera evaluación?</strong><br>La consulta inicial es el primer paso. Sin compromisos. Con toda la información que necesitas para decidir.</div>
-    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación+inicial." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
+    <a href="#agendar" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="1.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>
       Agendar evaluación inicial
     </a>
   </div>
@@ -997,6 +1010,25 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     <div class="tc rv"><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-text">"Siempre quise cambiar mi sonrisa y con la Dra. Isabel lo logré. El diseño fue exactamente lo que tenía en mente. Ahora sonrío en cada foto sin pensarlo."</p><div class="tc-div"></div><div class="tc-person"><div class="tc-av">A</div><div><div class="tc-name">Andrea M.</div><div class="tc-proc">Diseño de Sonrisa + Carillas</div></div></div></div>
     <div class="tc rv"><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-text">"Mi prótesis quedó absolutamente natural. La Dra. Isabel cuida cada detalle y te explica todo con paciencia y honestidad real."</p><div class="tc-div"></div><div class="tc-person"><div class="tc-av">C</div><div><div class="tc-name">Carlos R.</div><div class="tc-proc">Prótesis Dental Fija</div></div></div></div>
     <div class="tc rv"><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-text">"Las carillas cambiaron todo. Rápido, cómodo y el resultado es de revista. Se nota que lo que hace lo hace con pasión genuina."</p><div class="tc-div"></div><div class="tc-person"><div class="tc-av">V</div><div><div class="tc-name">Valentina S.</div><div class="tc-proc">Carillas de Porcelana</div></div></div></div>
+  </div>
+</section>
+
+<!-- AGENDA EN LÍNEA (Essential Dental): reserva aquí mismo, sin salir de la página -->
+<section id="agendar" class="sp">
+  <div class="ag-wrap">
+    <div class="ag-l">
+      <div class="tag">Agenda en línea</div>
+      <h2 class="h2">Elige tu día<br>y tu <em>hora</em>.</h2>
+      <p class="ag-p">Ves solo los horarios libres de la Dra. Isabel. Tu evaluación queda registrada al instante y te confirmamos por WhatsApp.</p>
+      <ul class="ag-pts">
+        <li>Evaluación de 45 minutos</li>
+        <li>Sin pago para reservar</li>
+        <li>¿Ya eres paciente? <a href="https://clinica-dental-app.pages.dev/portal" target="_blank" rel="noopener">Ver o cambiar mis citas</a></li>
+      </ul>
+    </div>
+    <div class="ag-r">
+      <iframe id="agenda-frame" src="https://clinica-dental-app.pages.dev/agenda/dra-isabel-pedrales?embed&amp;tema=dorado" title="Agendar evaluación con la Dra. Isabel Pedrales" loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 
@@ -1103,8 +1135,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <section id="cierre">
   <div class="cierre-l rv">
     <h2 class="cierre-h">Una sonrisa extraordinaria<br>comienza con<br><em>una conversación</em>.</h2>
-    <a href="https://wa.me/584245350712?text=Hola+Dra.+Isabel,+quiero+agendar+mi+evaluación." target="_blank" rel="noopener noreferrer" class="btn btn-gold">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.998 2C6.474 2 2 6.474 2 12c0 1.943.553 3.76 1.508 5.298L2 22l4.835-1.487C8.282 21.467 10.1 22 12 22c5.524 0 10-4.474 10-10S17.522 2 11.998 2z"/></svg>
+    <a href="#agendar" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="1.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>
       Agenda tu evaluación
     </a>
   </div>
@@ -1292,6 +1324,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     var v = null; try { v = localStorage.getItem('consentimiento'); } catch(e) {}
     if (!v) { var el = document.getElementById('ck'); if (el) el.style.display = 'flex'; }
   })();
+</script>
+<script>
+// Agenda en línea: el recuadro toma la altura de su contenido (sin doble barra de desplazamiento)
+window.addEventListener('message', function (e) {
+  if (e.origin !== "https://clinica-dental-app.pages.dev" || !e.data || e.data.type !== 'essential-dental:height') return;
+  document.getElementById('agenda-frame').style.height = Math.max(420, e.data.height) + 'px';
+});
+document.querySelectorAll('a[href="#agendar"]').forEach(function (a) {
+  a.addEventListener('click', function () { if (typeof fbq !== 'undefined') fbq('track', 'Schedule'); });
+});
 </script>
 </body>
 </html>
