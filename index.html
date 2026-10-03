@@ -1027,11 +1027,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
       <ul class="ag-pts">
         <li>Evaluación de 45 minutos</li>
         <li>Sin pago para reservar</li>
-        <li>¿Ya eres paciente? <a href="https://clinica-dental-app.pages.dev/portal" target="_blank" rel="noopener">Ver o cambiar mis citas</a></li>
+        <li>¿Ya eres paciente? <a href="https://essentialdental.app/mis-citas" target="_blank" rel="noopener">Ver o cambiar mis citas</a></li>
       </ul>
     </div>
     <div class="ag-r">
-      <iframe id="agenda-frame" src="https://clinica-dental-app.pages.dev/agenda/dra-isabel-pedrales?embed&amp;tema=dorado" title="Agendar evaluación con la Dra. Isabel Pedrales" loading="lazy"></iframe>
+      <iframe id="agenda-frame" src="https://essentialdental.app/agenda/dra-isabel-pedrales?embed&amp;tema=dorado" title="Agendar evaluación con la Dra. Isabel Pedrales" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -1332,7 +1332,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <script>
 // Agenda en línea: el recuadro toma la altura de su contenido (sin doble barra de desplazamiento)
 window.addEventListener('message', function (e) {
-  if (e.origin !== "https://clinica-dental-app.pages.dev" || !e.data || e.data.type !== 'essential-dental:height') return;
+  if (e.origin !== "https://essentialdental.app" || !e.data || e.data.type !== 'essential-dental:height') return;
   document.getElementById('agenda-frame').style.height = Math.max(420, e.data.height) + 'px';
 });
 document.querySelectorAll('a[href="#agendar"]').forEach(function (a) {
